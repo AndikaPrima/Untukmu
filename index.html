@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Untuk Muti ❤</title>
+<style>
+:root{--bg1:#1a0b2e;--bg2:#3b0d3f;--rose:#ff4d8d;--pink:#ffb3d1;--ink:#fff5f9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:radial-gradient(ellipse at 50% 20%,var(--bg2),var(--bg1) 70%);color:var(--ink);font-family:Georgia,"Times New Roman",serif;overflow:hidden}
+#stars,#stage{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:.2;animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.9;transform:scale(1.6)}}
+#hw{position:relative;flex:none}
+.hw-w{position:absolute;translate:-50% -50%;white-space:nowrap;font-style:italic;color:var(--pink);text-shadow:0 0 8px rgba(255,77,141,.8);animation:hpop .6s ease-out var(--d) both,glow 2.8s ease-in-out calc(var(--d) + .6s) infinite alternate}
+@keyframes hpop{from{opacity:0;scale:.3}to{opacity:1;scale:1}}
+@keyframes glow{from{opacity:.7}to{opacity:1;color:#fff;text-shadow:0 0 12px var(--rose)}}
+@keyframes hbeat{0%,100%{transform:scale(1)}15%{transform:scale(1.04)}30%{transform:scale(1)}45%{transform:scale(1.03)}}
+.screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;z-index:2}
+#show{justify-content:flex-start;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y;scroll-behavior:smooth;padding:16px 24px 120px}
+#show>#hw,#show>.to,#show>.msg,#show>.sig{flex:0 0 auto}
+.hidden{display:none!important}
+.card{width:100%;max-width:380px;background:rgba(255,255,255,.08);border:1px solid rgba(255,179,209,.35);border-radius:20px;padding:22px;backdrop-filter:blur(8px)}
+h1{margin:0 0 6px;font-size:26px}
+p.sub{margin:0 0 14px;color:var(--pink);font-size:15px}
+label{display:block;text-align:left;font:600 13px system-ui,sans-serif;margin:10px 0 5px}
+input,textarea{width:100%;font:16px system-ui,sans-serif;padding:11px;border-radius:10px;border:2px solid rgba(255,179,209,.4);background:rgba(0,0,0,.3);color:var(--ink)}
+button{font:700 16px system-ui,sans-serif;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--rose),#c2185b);border:0;border-radius:99px;padding:13px 26px;min-height:48px}
+button.ghost{background:rgba(255,255,255,.12);border:1px solid rgba(255,179,209,.5)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #ffd166;outline-offset:2px}
+#go{width:100%;margin-top:16px}
+.big{position:absolute;left:50%;top:47%;translate:-50% -50%;white-space:nowrap;font-weight:700;font-style:italic;letter-spacing:1px}
+.big span{display:inline-block;opacity:0;transform:translateY(24px) scale(.6);animation:pop .7s cubic-bezier(.2,1.4,.4,1) forwards;color:#fff;text-shadow:0 0 14px var(--rose),0 0 34px var(--rose)}
+@keyframes pop{to{opacity:1;transform:none}}
+.to{font-size:20px;color:var(--pink);min-height:28px}
+.msg{width:100%;max-width:620px;font-size:17px;line-height:1.65;min-height:90px;margin:8px 0 0;overflow-wrap:anywhere}
+.msg i{display:inline-block;width:2px;height:1em;background:var(--pink);vertical-align:-2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.sig{display:block;width:100%;max-width:620px;margin:12px 0 32px;padding-right:8px;color:var(--pink);font-style:italic;text-align:left;min-height:26px;opacity:0;transition:opacity 1.5s}
+.sig.on{opacity:1}
+.photo-frame{position:fixed;left:24px;top:50%;width:min(220px,18vw);aspect-ratio:4/5;translate:0 -50%;z-index:4;pointer-events:none}
+.photo-frame::before{content:"";position:absolute;inset:-8px;border:1px solid rgba(255,179,209,.55);border-radius:12px;transform:rotate(-2deg)}
+.photo-frame img{width:100%;height:100%;object-fit:cover;border:6px solid rgba(255,255,255,.92);border-radius:10px;box-shadow:0 16px 40px rgba(0,0,0,.35);animation:photoEnterExit 4.2s cubic-bezier(.2,.7,.2,1) both}
+.photo-frame figcaption{position:absolute;left:8px;right:8px;bottom:10px;padding:7px 8px;color:#fff;background:rgba(30,8,34,.72);border-radius:6px;font:600 12px system-ui,sans-serif}
+@keyframes photoEnterExit{0%{opacity:0;transform:translateX(-130%) rotate(-8deg) scale(.85)}12%,78%{opacity:1;transform:translateX(0) rotate(0) scale(1)}100%{opacity:0;transform:translateX(130%) rotate(8deg) scale(.85)}}
+.photo-frame.replay img{animation:none}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:12px 12px calc(12px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;justify-content:center;z-index:5}
+.bar button{padding:10px 16px;font-size:14px;min-height:44px}
+@media (max-width:720px){#show{padding:12px 16px 96px}.msg{width:min(82vw,620px);max-width:620px;font-size:16px;line-height:1.6}.sig{width:min(82vw,620px);max-width:620px}.photo-frame{left:14px;top:50%;width:min(118px,24vw);height:auto;aspect-ratio:4/5;translate:0 -50%}.photo-frame figcaption{font-size:10px}.bar{padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))}.bar button{padding:9px 14px}}
+@media (prefers-reduced-motion:reduce){.star,#hw{animation:none!important}.hw-w{animation:hpop .01s both!important}.photo-frame img{animation:none!important}}
+</style>
+</head>
+<body>
+<div id="stars"></div>
+<div id="stage"></div>
+<figure class="photo-frame hidden" id="photoFrame"><img id="photoImg" src="6.jpeg" alt="Kenangan"><figcaption id="photoCaption"></figcaption></figure>
+
+<section class="screen" id="form">
+  <div class="card">
+    <div style="font-size:44px">💌</div>
+    <h1>Selamat Wisuda Ya!!</h1>
+    <p class="sub">Ucapan spesial untuk</p>
+    <p id="toName" style="font-size:22px;font-style:italic;margin:6px 0 4px"></p>
+    <button id="go">Buka Ucapan ❤</button>
+  </div>
+</section>
+
+<section class="screen hidden" id="show">
+  <div id="hw"><div class="big" id="big" aria-label="I Love You"></div></div>
+  <div class="to" id="toL"></div>
+  <div class="msg"><span id="m"></span><i></i></div>
+  <div class="sig" id="sig"></div>
+</section>
+
+<div class="bar hidden" id="bar">
+  <button class="ghost" id="mute">🔊 Musik</button>
+  <button class="ghost" id="again">↻ Ulangi</button>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const stage=$('#stage'),RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const rnd=(a,b)=>a+Math.random()*(b-a);
+
+/* bintang latar */
+for(let i=0;i<60;i++){const s=document.createElement('i');s.className='star';s.style.left=rnd(0,100)+'%';s.style.top=rnd(0,100)+'%';s.style.animationDelay=rnd(0,3)+'s';$('#stars').appendChild(s)}
+
+/* hati & kata-kata cinta */
+const WORDS=['I love you','Aku cinta kamu','Je t’aime','Te amo','Ti amo','Ich liebe dich','Saranghae','愛してる','我爱你','Te quiero','Aku sayang kamu','Mahal kita','Seni seviyorum','Я тебя люблю'];
+/* kata-kata disusun mengikuti garis bentuk hati (dua lapis), lalu muncul satu per satu */
+function buildHeart(){
+  const h=$('#hw'),S=Math.floor(Math.min(innerWidth*.88,innerHeight*.42,420));
+  h.style.width=h.style.height=S+'px';h.style.animation='none';
+  h.querySelectorAll('.hw-w').forEach(e=>e.remove());
+  $('#big').style.fontSize=Math.round(S*.085)+'px';
+  const u=S/100,pt=(t,k)=>[S/2+16*Math.pow(Math.sin(t),3)*2.7*u*k,S/2-(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t)+2.5)*2.9*u*k];
+  let n=0,wi=0;
+  [[1,S*.042,.09],[.7,S*.034,.08]].forEach(([k,fs,dl])=>{
+    const N=720,P=[],Lc=[0];
+    for(let i=0;i<=N;i++){P.push(pt(i/N*2*Math.PI,k));if(i)Lc.push(Lc[i-1]+Math.hypot(P[i][0]-P[i-1][0],P[i][1]-P[i-1][1]))}
+    const tot=Lc[N];let s=0,j=0;
+    for(;;){
+      const w=WORDS[wi%WORDS.length],cw=[...w].reduce((a,c)=>a+(c.charCodeAt(0)>0x2e80?1:.54),0)*fs;
+      if(s+cw>tot)break;
+      const mid=s+cw/2;while(j<N&&Lc[j]<mid)j++;
+      const a=P[Math.max(j-1,0)],b=P[Math.min(j+1,N)];
+      let ang=Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI;if(ang>90)ang-=180;if(ang<-90)ang+=180;
+      const e=document.createElement('span');e.className='hw-w';e.textContent=w;
+      e.style.cssText=`left:${P[j][0]}px;top:${P[j][1]}px;font-size:${fs}px;rotate:${ang}deg;--d:${(n*dl).toFixed(2)}s`;
+      h.appendChild(e);n++;wi++;s+=cw+fs*.9;
+    }
+  });
+  h.style.animation=`hbeat 1.8s ease-in-out ${(n*.09+1).toFixed(1)}s infinite`;
+}
+function startFx(){stopFx();buildHeart()}
+function stopFx(){const h=$('#hw');h.querySelectorAll('.hw-w').forEach(e=>e.remove());h.style.animation='none'}
+
+/* musik: dibuat langsung oleh peramban (Web Audio), nada romantis berulang */
+/* ===== GANTI LAGU DI SINI =====
+   Taruh file lagu satu folder dengan file HTML ini, lalu tulis namanya, contoh: 'lagu.mp3'
+   Kosongkan ('') untuk memakai musik piano bawaan. */
+const LAGU='about-you.mp3';
+
+/* ===== ISI NAMAMU DAN PESAN DI SINI ===== */
+const NAMA_PASANGAN='Mutiara Clariska Amanda';
+$('#toName').textContent=NAMA_PASANGAN;
+const PESAN=`i love u but i always pray to god, semoga semua cita-cita kita berdua terwujud, dan bisa selalu menjadi alasan orang tersenyum terutama kedua orang tua kita, semoga mendapatakkan hal hal baik dimanapun kamu berada, semoga selalu di kelilingi orang baik dan terus belajar bahagia, semoga di kuatkan imannya, di permudah segala urusan pekerjaannya dan di berikan keselamatan dimanapun kamu berada. banyak bahasa cinta namun bahasa cinta yang paling mudah adalah doa 🥰💞💝 biarkan aku mencintaimu lebih lama lagi ya mut, kalo lebih lama lagi kamu ga keberatan kan mut?🤔. Selamat Wisuda dan Selamat Kerjaa Mutiiii🤗🥳.`;
+
+const FOTO=[['6.jpeg','when yh zoo date again'],['7.jpeg','gini aja imut yakan'],['8.JPEG','Selamat wisuda, mutii'],['lawd.jpeg','when yh ke laut lagi'],['kicik.jpeg','tinggian aku wle'],['miss.jpeg','kangen mam di bebek belur ama kamu'],['cantik.jpg','udah cantikk lohh kamu tu🤏🏻🤗'],['tuh.jpg','tuhh cantikk kan, ga ya?'],['laut.jpeg','tuhh🤏🏻🤗'],['nih.jpg','sumpah cantik banget woawdjaugfsucyb'],['plk.jpeg','yah pulkammm😔🥺'],['wd.jpeg','camat wisuda yahh'],['jir.jpeg','kalo sekarang dah kerja'],['gawe.jpeg','cemungutt kerjanyaa🥰😁']];
+
+const NAMA_KAMU='Prima';
+let fotoTimer,autoScrollTimer,fotoIndex=0;
+let ctx,master,sched,nextT=0,step=0,on=true,custom=LAGU?Object.assign(new Audio(LAGU),{loop:true}):null;
+const F=n=>440*Math.pow(2,(n-69)/12);
+const CH=[[60,64,67,72,76,72,67,64],[55,59,62,67,71,67,62,59],[57,60,64,69,72,69,64,60],[53,57,60,65,69,65,60,57]]; /* C G Am F */
+const BASS=[36,43,45,41],MEL=[[76,0,79,0,76,0,74,0],[74,0,71,0,74,0,79,0],[72,0,76,0,81,0,79,0],[77,0,76,0,72,0,69,0]];
+function tone(f,t,d,type,v){const o=ctx.createOscillator(),g=ctx.createGain();o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.0008,t+d);o.connect(g);g.connect(master);o.start(t);o.stop(t+d+.05)}
+function tick(){
+  const E=.4;
+  while(nextT<ctx.currentTime+.5){
+    const bar=Math.floor(step/8)%4,k=step%8;
+    tone(F(CH[bar][k]),nextT,1.3,'triangle',.11);
+    if(MEL[bar][k])tone(F(MEL[bar][k]),nextT,1.6,'sine',.09);
+    if(k===0){tone(F(BASS[bar]),nextT,3.0,'sine',.2);[0,2,3].forEach(i=>tone(F(CH[bar][i]-12),nextT,3.0,'sine',.035))}
+    nextT+=E;step++;
+  }
+}
+function showPhoto(){
+  const frame=$('#photoFrame'),img=$('#photoImg'),caption=$('#photoCaption');
+  const [file,text]=FOTO[fotoIndex];
+  frame.classList.remove('hidden','replay');
+  img.style.animation='none';
+  void img.offsetWidth;
+  img.src=file;
+  img.alt=text;
+  caption.textContent=text;
+  img.style.animation='';
+  void img.offsetWidth;
+  fotoIndex=(fotoIndex+1)%FOTO.length;
+}
+function startPhotos(){clearInterval(fotoTimer);showPhoto();fotoTimer=setInterval(showPhoto,4500)}
+function stopPhotos(){clearInterval(fotoTimer);$('#photoFrame').classList.add('hidden')}
+function music(){
+  if(custom){clearInterval(sched);if(master)master.gain.value=0;custom.muted=false;custom.currentTime=0;custom.play().catch(()=>{custom=null;music()});on=true;$('#mute').textContent='🔊 Musik';return}
+  if(!ctx){const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;ctx=new AC();
+    master=ctx.createGain();master.gain.value=.7;
+    const dl=ctx.createDelay(),fb=ctx.createGain(),wet=ctx.createGain();dl.delayTime.value=.32;fb.gain.value=.38;wet.gain.value=.35;
+    master.connect(ctx.destination);master.connect(dl);dl.connect(fb);fb.connect(dl);dl.connect(wet);wet.connect(ctx.destination)}
+  if(ctx.state==='suspended')ctx.resume();
+  clearInterval(sched);step=0;nextT=ctx.currentTime+.1;sched=setInterval(tick,120);tick();
+  on=true;master.gain.value=.7;$('#mute').textContent='🔊 Musik';
+}
+$('#mute').onclick=()=>{on=!on;if(custom)custom.muted=!on;else if(ctx)master.gain.value=on?.7:0;$('#mute').textContent=on?'🔊 Musik':'🔇 Musik'};
+
+/* tampilan ucapan */
+let tw;
+function gentleScrollToBottom(){
+  const show=$('#show');
+  if(show.scrollHeight>show.clientHeight){show.scrollTo({top:show.scrollHeight,behavior:'smooth'})}
+}
+function play(){
+  const to=NAMA_PASANGAN,from=NAMA_KAMU,tx=PESAN;
+  $('#form').classList.add('hidden');$('#show').classList.remove('hidden');$('#bar').classList.remove('hidden');
+  const big=$('#big');big.innerHTML='';
+  [...'I Love You'].forEach((c,i)=>{const s=document.createElement('span');s.innerHTML=c===' '?'&nbsp;':'';if(c!==' ')s.textContent=c;s.style.animationDelay=(.3+i*.18)+'s';big.appendChild(s)});
+  $('#toL').textContent='Untuk '+to+' ❤';
+  const sg=$('#sig');sg.classList.remove('on');sg.textContent='— '+from;
+  const m=$('#m');m.textContent='';clearInterval(tw);clearInterval(autoScrollTimer);let i=0;
+  setTimeout(()=>{tw=setInterval(()=>{m.textContent=tx.slice(0,++i);if(i>=tx.length){clearInterval(tw);clearInterval(autoScrollTimer);sg.classList.add('on');gentleScrollToBottom()}},75)},1800);
+  autoScrollTimer=setInterval(gentleScrollToBottom,900);
+  startFx();startPhotos();music();
+}
+$('#go').onclick=play;
+$('#again').onclick=play;
+$('#edit').onclick=()=>{if(custom)custom.pause();clearInterval(tw);clearInterval(autoScrollTimer);stopFx();stopPhotos();clearInterval(sched);$('#show').classList.add('hidden');$('#bar').classList.add('hidden');$('#form').classList.remove('hidden')};
+</script>
+</body>
+</html>
